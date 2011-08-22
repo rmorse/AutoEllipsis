@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Auto Ellipse Text /w jQuery</title>
+<link rel="stylesheet" type="text/css" href="main.css" /> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		jQuery.fn.autoEllipseText = function(options)
+		{
+			if(!options)
+			{
+				var options = new Array();
+			}
+			//initalise variables
+			var width = 0;
+			var text = "";
+			var offset = 0;
+			
+			var twidth = "";
+			if(options["width"]){twidth = options["width"];}
+			if(twidth!=""){width = options["width"];}
+			
+			var toffset = "";
+			if(options["offset"]){toffset = options["offset"];}
+			if(toffset!=""){offset = toffset;}
+			
+			//loop through each occurence
+			this.each(function()
+			{
+				if(width==0)
+				{
+					width = $(this).width()+offset;
+				}
+				
+				text = $(this).html();
+				$(this).html('<span title="' + text + '" class="ellipsisSpan" style="white-space:nowrap;">' + text + '</span>');
+				inSpan = $(this).find('span');
+				
+				if(inSpan.width() > width)
+				{
+					var i = 1;
+					inSpan.html("");
+					while(inSpan.width() < (width) && i < text.length)
+					{
+						inSpan.html(text.substr(0,i) + '...');
+						i++;
+					}
+					returnText = inSpan.html();
+					
+					
+				}
+			});
+			return this;
+		};
+
+		$("#ex0").autoEllipseText();
+		$("#ex1").autoEllipseText();
+		$("#ex2").autoEllipseText();
+		$("#ex3").autoEllipseText({offset:-100});
+		$("#ex4").autoEllipseText({width:500, offset:-100});
+		$("#ex5").autoEllipseText({});
+
+	});
+</script>
+</head>
+<body>
+	
+	<h1>Auto Ellipse with jQuery</h1>
+	<hr />
+	
+	<h2>&lt;h1&gt; tag with no predifined width (so usually 100% - the width of it's container)</h2>
+	<h1 class="example1" id="ex0">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped.</h1>
+	
+	<h2>&lt;h1&gt; tag with fixed width</h2>
+	<h1 class="example" id="ex1">This is a test with text that is longer than we would have hoped</h1>
+	
+	<h2>&lt;div&gt; with fixed width</h2>
+	<div class="example" id="ex2">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+	
+	<h2>&lt;div&gt; with fixed width and offset of -100</h2>
+	<div class="example" id="ex3">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+	
+	<h2>&lt;div&gt; with fixed width and offset of -100 &amp; manually added width of 500</h2>
+	<div class="example" id="ex4">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+	
+	<h2>&lt;div&gt; with 100% width</h2>NB., this does not change when you resize the window, only on page load - This feature coming soon.<br /><br />
+	<div class="example" id="ex5">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+	
+	<hr />
+	
+	This script does not yet support multiple lines - this is the next biggest feature to be added.
+</body>
+</html>

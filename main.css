@@ -1,0 +1,25 @@
+﻿/*
+	Name: Auto Ellipse with jQuery
+	Date: August 2011
+	Description: Auto Ellipse with jQuery, based on Brandon Cannaday's version at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+	Version: 1.0
+	Author: Rostam Morsali
+	Author URI: http://www.weareelevate.com
+*/
+body
+{
+	font-size: 87.5%; /* Base font size: 14px */
+	font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	line-height: 1.429;
+	
+	text-align: left;
+}
+.example1
+{
+	background-color:#91ccef;
+}
+.example
+{
+	width:200px;
+	background-color:#91ccef;
+}
