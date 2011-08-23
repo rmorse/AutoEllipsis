@@ -1,1 +1,21 @@
-Hello World test
+﻿
+Auto Ellipse with jQuery
+-------------------------
+
+Date: August 2011
+Description: Auto Ellipse Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+Version: 1.0
+Author: Ross Morsali
+Author URI: http://www.weareelevate.com
+Project URI: https://github.com/rmorse/AutoEllipse
+
+-------------------------
+
+Notes
+
+See index.html for usage examples and sample source code
+
+Text does not auto ellipse dynamically, that is, once the script has run, any change in width of html elements will not be ellipsed automatically.  You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.
+
+This script does not yet support multiple lines - this is the feature I most want to implement and will probably be in the next version.
+

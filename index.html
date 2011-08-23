@@ -1,62 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+	Name: Auto Ellipse Text with jQuery
+	Date: August 2011
+	Description: Auto Ellipse Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+	Version: 1.0
+	Author: Ross Morsali
+	Author URI: http://www.weareelevate.com
+	Project URI: https://github.com/rmorse/AutoEllipse
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>Auto Ellipse Text /w jQuery</title>
+<title>Auto Ellipse Text with jQuery</title>
 <link rel="stylesheet" type="text/css" href="main.css" /> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="autoellipse.jquery.js"></script>
 <script type="text/javascript">
-
 	$(document).ready(function()
 	{
-		jQuery.fn.autoEllipseText = function(options)
-		{
-			if(!options)
-			{
-				var options = new Array();
-			}
-			//initalise variables
-			var width = 0;
-			var text = "";
-			var offset = 0;
-			
-			var twidth = "";
-			if(options["width"]){twidth = options["width"];}
-			if(twidth!=""){width = options["width"];}
-			
-			var toffset = "";
-			if(options["offset"]){toffset = options["offset"];}
-			if(toffset!=""){offset = toffset;}
-			
-			//loop through each occurence
-			this.each(function()
-			{
-				if(width==0)
-				{
-					width = $(this).width()+offset;
-				}
-				
-				text = $(this).html();
-				$(this).html('<span title="' + text + '" class="ellipsisSpan" style="white-space:nowrap;">' + text + '</span>');
-				inSpan = $(this).find('span');
-				
-				if(inSpan.width() > width)
-				{
-					var i = 1;
-					inSpan.html("");
-					while(inSpan.width() < (width) && i < text.length)
-					{
-						inSpan.html(text.substr(0,i) + '...');
-						i++;
-					}
-					returnText = inSpan.html();
-					
-					
-				}
-			});
-			return this;
-		};
-
+		//Usage is very simple
 		$("#ex0").autoEllipseText();
 		$("#ex1").autoEllipseText();
 		$("#ex2").autoEllipseText();
@@ -70,28 +32,39 @@
 <body>
 	
 	<h1>Auto Ellipse with jQuery</h1>
+	Based on Brandon Cannaday's Auto Ellipse script at: <a href="http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text" target="_blank">http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text</a>
 	<hr />
-	
-	<h2>&lt;h1&gt; tag with no predifined width (so usually 100% - the width of it's container)</h2>
-	<h1 class="example1" id="ex0">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped.</h1>
-	
-	<h2>&lt;h1&gt; tag with fixed width</h2>
-	<h1 class="example" id="ex1">This is a test with text that is longer than we would have hoped</h1>
-	
-	<h2>&lt;div&gt; with fixed width</h2>
-	<div class="example" id="ex2">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
-	
-	<h2>&lt;div&gt; with fixed width and offset of -100</h2>
-	<div class="example" id="ex3">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
-	
-	<h2>&lt;div&gt; with fixed width and offset of -100 &amp; manually added width of 500</h2>
-	<div class="example" id="ex4">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
-	
-	<h2>&lt;div&gt; with 100% width</h2>NB., this does not change when you resize the window, only on page load - This feature coming soon.<br /><br />
-	<div class="example" id="ex5">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
-	
+	<h2>Notes</h2>
+	<ul>
+		<li>Text does not auto ellipse dynamically, that is, once the script has run, any change in width of html elements will not be ellipsed automatically.  You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.</li>
+		<li>This script does not yet support multiple lines - this is the feature I most want to implement and will probably be in the next version.</li>
+	</ul>
 	<hr />
-	
-	This script does not yet support multiple lines - this is the next biggest feature to be added.
+	<h2>Examples</h2>
+	<div class="examples">
+		
+		<h3>&lt;h1&gt; tag with no predifined width (so usually 100% - the width of it's container)</h3>
+		<h1 id="ex0">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped.</h1>
+		
+		<h3>&lt;h1&gt; tag with fixed width</h3>
+		<h1 id="ex1">This is a test with text that is longer than we would have hoped</h1>
+		
+		<h3>&lt;div&gt; with fixed width</h3>
+		<div id="ex2">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+		
+		<h3>&lt;div&gt; with fixed width and offset of -100</h3>
+		<div id="ex3">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+		
+		<h3>&lt;div&gt; with fixed width and offset of -100 &amp; manually added width of 500</h3>
+		<div id="ex4">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+		
+		<h3>&lt;div&gt; with 100% width</h3>
+		<div id="ex5">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+	</div>	
+	<hr />
+	<h2>Credits</h2>
+	<p>Written and maintained by Ross Morsali (<a href="http://www.weareelevate.com/" target="_blank">We Are Elevate</a>)</p>
+	<p>Original script written by Brandon Cannaday (<a href="http://www.switchonthecode.com/" target="_blank">Swith On The Code</a>)</p>
+	<hr /><br /><br /><br />
 </body>
 </html>

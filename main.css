@@ -1,10 +1,11 @@
 ﻿/*
-	Name: Auto Ellipse with jQuery
+	Name: Auto Ellipse Text with jQuery
 	Date: August 2011
-	Description: Auto Ellipse with jQuery, based on Brandon Cannaday's version at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+	Description: Auto Ellipse Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
 	Version: 1.0
-	Author: Rostam Morsali
+	Author: Ross Morsali
 	Author URI: http://www.weareelevate.com
+	Project URI: https://github.com/rmorse/AutoEllipse
 */
 body
 {
@@ -14,12 +15,44 @@ body
 	
 	text-align: left;
 }
-.example1
+
+
+.examples
 {
-	background-color:#91ccef;
+	width:800px;
+	background-color:#f6f6f6;
+	padding:20px;
+	margin-bottom:20px;
+	border:1px solid #dedede;
+
 }
-.example
-{
+.examples div, .examples h1
+{ /* most examples have 200px width except first example */ 
 	width:200px;
 	background-color:#91ccef;
+}
+#ex0
+{
+	width:auto;
+}
+
+
+
+/* used for headings above examples */
+.examples h3
+{
+	padding-top:30px;
+	border-bottom:1px solid #ddd;
+	font-weight:normal;
+}
+.examples h3:first-child
+{
+	padding-top:0;
+	
+}
+hr
+{
+	color:#ffffff;
+	border-color:ffffff;
+	background-color:ffffff;
 }
