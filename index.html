@@ -1,42 +1,41 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-	Name: Auto Ellipse Text with jQuery
+	Name: Auto Ellipsis Text with jQuery
 	Date: August 2011
-	Description: Auto Ellipse Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+	Description: Auto Ellipsis Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
 	Version: 1.0
 	Author: Ross Morsali
 	Author URI: http://www.weareelevate.com
-	Project URI: https://github.com/rmorse/AutoEllipse
+	Project URI: https://github.com/rmorse/AutoEllipsis
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>Auto Ellipse Text with jQuery</title>
+<title>Auto Ellipsis Text with jQuery</title>
 <link rel="stylesheet" type="text/css" href="main.css" /> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="autoellipse.jquery.js"></script>
+<script type="text/javascript" src="autoellipsis.jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function()
 	{
 		//Usage is very simple
-		$("#ex0").autoEllipseText();
-		$("#ex1").autoEllipseText();
-		$("#ex2").autoEllipseText();
-		$("#ex3").autoEllipseText({offset:-100});
-		$("#ex4").autoEllipseText({width:500, offset:-100});
-		$("#ex5").autoEllipseText({});
+		$("#ex0").autoEllipsisText();
+		$("#ex1").autoEllipsisText();
+		$("#ex2").autoEllipsisText();
+		$("#ex3").autoEllipsisText({offset:-100});
+		$("#ex4").autoEllipsisText({width:500, offset:-100});
+		$("#ex5").autoEllipsisText({});
 
 	});
 </script>
 </head>
 <body>
-	
-	<h1>Auto Ellipse with jQuery</h1>
+	<h1>Auto Ellipsis with jQuery</h1>
 	Based on Brandon Cannaday's Auto Ellipse script at: <a href="http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text" target="_blank">http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text</a>
 	<hr />
 	<h2>Notes</h2>
 	<ul>
-		<li>Text does not auto ellipse dynamically, that is, once the script has run, any change in width of html elements will not be ellipsed automatically.  You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.</li>
+		<li>This script does not add ellipsis dynamically, that is, once the script has run, any change in width of html elements will not adjust positioning of the ellipsis. You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.</li>
 		<li>This script does not yet support multiple lines - this is the feature I most want to implement and will probably be in the next version.</li>
 	</ul>
 	<hr />

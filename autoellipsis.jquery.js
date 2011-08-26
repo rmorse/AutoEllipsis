@@ -1,13 +1,13 @@
 ﻿/*
-	Name: Auto Ellipse Text with jQuery
+	Name: Auto Ellipsis Text with jQuery
 	Date: August 2011
-	Description: Auto Ellipse Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
+	Description: Auto Ellipsis Text with jQuery, based on Brandon Cannaday's Auto Ellipse script at: http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text
 	Version: 1.0
 	Author: Ross Morsali
 	Author URI: http://www.weareelevate.com
-	Project URI: https://github.com/rmorse/AutoEllipse
+	Project URI: https://github.com/rmorse/AutoEllipsis
 */
-jQuery.fn.autoEllipseText = function(options)
+jQuery.fn.autoEllipsisText = function(options)
 {
 	//current options supported are "width" and "offset"
 	//WIDTH is currently used to manually define a width for the content area and to begin clipping the text - if none is provided the width of the DOM element will be used by default
