@@ -13,8 +13,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <title>Auto Ellipsis Text with jQuery</title>
 <link rel="stylesheet" type="text/css" href="main.css" /> 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="autoellipsis.jquery.js"></script>
+
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="autoellipsis.min.jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function()
 	{
@@ -24,20 +26,19 @@
 		$("#ex2").autoEllipsisText();
 		$("#ex3").autoEllipsisText({offset:-100});
 		$("#ex4").autoEllipsisText({width:500, offset:-100});
-		$("#ex5").autoEllipsisText({});
+		$("#ex5").autoEllipsisText();
+		$("#ex6").autoEllipsisText({multiline:true, accuracyStep:1});
 
 	});
 </script>
 </head>
 <body>
 	<h1>Auto Ellipsis with jQuery</h1>
+	This script adds ellipses to text (...). It will automatically determine when text doesn't fit in its container; shortening the text and adding an ellispis.<br /><br />
 	Based on Brandon Cannaday's Auto Ellipse script at: <a href="http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text" target="_blank">http://www.switchonthecode.com/tutorials/javascript-tutorial-how-to-auto-ellipse-text</a>
 	<hr />
-	<h2>Notes</h2>
-	<ul>
-		<li>This script does not add ellipsis dynamically, that is, once the script has run, any change in width of html elements will not adjust positioning of the ellipsis. You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.</li>
-		<li>This script does not yet support multiple lines - this is the feature I most want to implement and will probably be in the next version.</li>
-	</ul>
+	<h3>Tags</h3>
+	Auto Ellipse, Auto Ellipsis, Single Line, Multi Line, Text, Shorten Text, Resize Text, Paragraph, Dot, ...
 	<hr />
 	<h2>Examples</h2>
 	<div class="examples">
@@ -59,7 +60,36 @@
 		
 		<h3>&lt;div&gt; with 100% width</h3>
 		<div id="ex5">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
+		
+		<h3>&lt;multiline div&gt; with 300px width and 200px height</h3>
+		<div id="ex6">This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. This is a test with text that is longer than we would have hoped. </div>
 	</div>	
+	<hr />
+	<h2>Known Issues</h2>
+	<ul>
+		<li>This script does not add ellipsis dynamically, that is, once the script has run, any change in width of html elements will not adjust positioning of the ellipsis. You could call the script on a resize event however if the width is increasing in size there is no way (currently) for the script to be able to expand the text.</li>
+		<li>Does not work on text with html (this includes entities)</li>
+		<li>Doesn't respect padding</li>
+	</ul>
+	<hr />
+	<h2>Changelog (v 1.1)</h2>
+	<ul>
+		<li>Added multi line support</li>
+		<li>**Fixed logic which meant ellipses were going outside of their containers</li>
+		<li>**Updated docs and readme format</li>
+		<li>Removed some redundant code &amp; refactored</li>
+		<li>Added minified - now only 1.26 kb</li>
+	</ul>
+	<hr />
+	<h2>Todo</h2>
+	<ul>
+		<li>add persist</li>
+		<li>add accuracy</li>
+		<li>add support for html character entities</li>
+		<li>improve multi line logic, to perhaps include some html such as paragraph tags or line breaks</li>
+		<li>add custom ellipses / "read more" or allow the addition of a custom link/href attribute</li>
+		<li>add "invert direction" on multi line in case text is often MUCH larger than the area it will fit in - performance enhancements</li>
+	</ul>
 	<hr />
 	<h2>Credits</h2>
 	<p>Written and maintained by Ross Morsali (<a href="http://www.weareelevate.com/" target="_blank">We Are Elevate</a>)</p>

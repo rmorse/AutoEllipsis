@@ -35,7 +35,11 @@ body
 {
 	width:auto;
 }
-
+#ex6
+{
+	width:300px;
+	height:100px;
+}
 
 
 /* used for headings above examples */
